@@ -139,5 +139,6 @@ function _createToys() {
                 "inStock": true
             }
         ]
+        utilService.saveToStorage(STORAGE_KEY, toys)
     }
 }

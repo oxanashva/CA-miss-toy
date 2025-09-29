@@ -4,7 +4,8 @@ export const utilService = {
     saveToStorage,
     loadFromStorage,
     debounce,
-    animateCSS
+    animateCSS,
+    formatToDate
 }
 
 function makeId(length = 5) {
@@ -67,4 +68,17 @@ export function getExistingProperties(obj) {
         }
     }
     return truthyObj
+}
+
+export function formatToDate(timestamp) {
+    const date = new Date(timestamp)
+
+    const options = {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        timeZone: 'Asia/Jerusalem' // Set the time zone to Israel
+    }
+
+    return date.toLocaleString('en-US', options)
 }

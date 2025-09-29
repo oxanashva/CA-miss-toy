@@ -5,7 +5,7 @@ export function AppHeader() {
     return (
         <header className="app-header container">
             <div className="logo">
-                <img src={logo} alt="Miss Toys Logo" width={60} />
+                <img src={logo} alt="Miss Toys Logo" width={40} />
                 <h1>Miss Toys</h1>
             </div>
             <nav>

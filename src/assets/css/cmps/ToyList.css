@@ -1,0 +1,22 @@
+.toy-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.toy-list li {
+    border: 1px solid var(--primary);
+    border-radius: 1rem;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.toy-list li:hover {
+     transform: translate(-5px, -5px)
+}
+
+.toy-list .toy-actions {
+    display: flex;
+    justify-content: end;
+    margin-block: 1rem;
+}
