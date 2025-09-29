@@ -1,9 +1,11 @@
 .app-header {
-    width: 100%;
+    background-color: var(--bg);
+}
+
+.app-header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--bg);
 }
 
 .app-header .logo {
