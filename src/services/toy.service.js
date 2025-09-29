@@ -80,33 +80,6 @@ function _createToys() {
     if (!toys || !toys.length) {
         toys = [
             {
-                "_id": "t101",
-                "name": "Talking Doll",
-                "price": 123,
-                "imgUrl": "/toy-img/doll.jpeg",
-                "labels": ["Doll", "Battery Powered", "Baby"],
-                "createdAt": 1631031801011,
-                "inStock": true
-            },
-            {
-                "_id": "t102",
-                "name": "Remote Control Car",
-                "price": 85,
-                "imgUrl": "/toy-img/car.jpeg",
-                "labels": ["On wheels", "Battery Powered", "Outdoor"],
-                "createdAt": 1631558400000,
-                "inStock": true
-            },
-            {
-                "_id": "t103",
-                "name": "Jigsaw Puzzle (1000 pieces)",
-                "price": 35,
-                "imgUrl": "/toy-img/puzzle.jpeg",
-                "labels": ["Puzzle", "Box game"],
-                "createdAt": 1632076800000,
-                "inStock": false
-            },
-            {
                 "_id": "t104",
                 "name": "Finger Paint Set",
                 "price": 28,
@@ -150,6 +123,33 @@ function _createToys() {
                 "labels": ["Puzzle", "Art"],
                 "createdAt": 1634668800000,
                 "inStock": true
+            },
+            {
+                "_id": "t101",
+                "name": "Talking Doll",
+                "price": 123,
+                "imgUrl": "/toy-img/doll.jpeg",
+                "labels": ["Doll", "Battery Powered", "Baby"],
+                "createdAt": 1631031801011,
+                "inStock": true
+            },
+            {
+                "_id": "t102",
+                "name": "Remote Control Car",
+                "price": 85,
+                "imgUrl": "/toy-img/car.jpeg",
+                "labels": ["On wheels", "Battery Powered", "Outdoor"],
+                "createdAt": 1631558400000,
+                "inStock": true
+            },
+            {
+                "_id": "t103",
+                "name": "Jigsaw Puzzle (1000 pieces)",
+                "price": 35,
+                "imgUrl": "/toy-img/puzzle.jpeg",
+                "labels": ["Puzzle", "Box game"],
+                "createdAt": 1632076800000,
+                "inStock": false
             }
         ]
         utilService.saveToStorage(STORAGE_KEY, toys)

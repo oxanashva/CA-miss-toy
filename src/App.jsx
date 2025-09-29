@@ -7,6 +7,7 @@ import { About } from "./pages/About"
 import { ToyEdit } from "./pages/ToyEdit"
 import { ToyIndex } from "./pages/ToyIndex"
 import { ToyDetails } from "./pages/ToyDetails"
+import { UserMsg } from "./cmps/UserMsg"
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           </Routes>
         </main>
         <AppFooter />
+        <UserMsg />
       </section>
     </Router>
   )

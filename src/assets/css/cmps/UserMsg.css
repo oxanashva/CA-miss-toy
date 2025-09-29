@@ -1,0 +1,47 @@
+.user-msg {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    width: 300px;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: var(--gray1);
+}
+
+.user-msg.success {
+    /* background-color: rgb(173, 243, 245); */
+    color: var(--success);
+    border: 1px solid var(--success);
+}
+
+.user-msg.error {
+    /* background-color: rgb(243, 170, 199); */
+    color: var(--error);
+    border: 1px solid var(--error);
+}
+
+.user-msg p {
+    margin-block-end: 0;
+}
+
+.user-msg button {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.4rem;
+    color: var(--gray3);
+    background-color: transparent;
+    border: none;
+}
+
+.user-msg button:hover {
+    background-color: transparent;
+    opacity: .5;
+}
+
+.user-msg button.error {
+    color: var(--error);
+}
+
+.user-msg button.success {
+    color: var(--success);
+}
