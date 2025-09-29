@@ -1,0 +1,22 @@
+.app-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg);
+}
+
+.app-header .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.app-header h1 {
+    color: var(--primary);
+}
+
+.app-header nav {
+    display: flex;
+    gap: 1rem;
+}
