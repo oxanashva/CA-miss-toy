@@ -46,9 +46,17 @@ button {
     }
 }
 
-input {
+input:not([type="checkbox"]), select {
     font-family: inherit;
     text-align: inherit;
+    padding: 0.3rem 0.5rem;
+    outline: 1px solid var(--gray2);
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+input:focus, select:focus {
+    border: 1px solid var(--primary);
 }
 
 ul {

@@ -1,0 +1,60 @@
+.toy-edit {
+    position: relative;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--primary);
+    border-radius: 1rem;
+    padding: 2rem 4rem;
+}
+
+.toy-edit::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.toy-edit h2 {
+    margin-block-end: 1rem;
+    color: var(--primary);
+    font-weight: 800;
+    text-align: center;
+}
+
+.toy-edit form {
+    display: flex;
+    flex-direction: column;
+}
+
+.toy-edit .form-group {
+    display: grid;
+    grid-template-columns: 3fr 5fr;
+    margin-block: 1rem;
+}
+
+.toy-edit .form-group #instock {
+    justify-self: start;
+}
+
+.toy-edit .btn {
+    margin-block-start: 2rem;
+    margin-inline-end: 0;
+    align-self: flex-end;
+}
+
+.toy-edit .close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background-color: transparent;
+    transition: all 0.3 ease    ;
+}
+
+.toy-edit .close:hover {
+    opacity: 0.5;
+}
+
+@media(min-width: 576px) {
+    .toy-edit {
+        width: 576px;
+    }
+}
