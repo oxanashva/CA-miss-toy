@@ -39,7 +39,9 @@ async function remove(id) {
 }
 
 async function getById(id) {
-    return await storageService.get(STORAGE_KEY, id)
+    let toy = await storageService.get(STORAGE_KEY, id)
+    toy = _setNextPrevToyId(toy)
+    return toy
 }
 
 function getDefaultFilter() {
@@ -60,6 +62,17 @@ function createToy(name = '', price = 0) {
         name,
         price,
     }
+}
+
+function _setNextPrevToyId(toy) {
+    return query().then((toys) => {
+        const toyIdx = toys.findIndex((currBook) => currBook._id === toy._id)
+        const nextId = toys[toyIdx + 1] ? toys[toyIdx + 1] : toys[0]
+        const prevId = toys[toyIdx - 1] ? toys[toyIdx - 1] : toys[toys.length - 1]
+        toy.nextToyId = nextId._id
+        toy.prevToyId = prevId._id
+        return toy
+    })
 }
 
 function _createToys() {

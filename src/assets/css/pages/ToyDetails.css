@@ -1,0 +1,61 @@
+.toy-details {
+    display: flex;
+    gap: 4rem;
+}
+
+.toy-details .img-wrapper {
+    position: relative;
+}
+
+.toy-details .toy-img {
+  margin-block: 1rem;
+}
+
+.toy-details .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.toy-details h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-block-end: 1rem;
+}
+
+.toy-details .labels {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    height: 80px;
+    overflow: hidden;
+}
+
+.toy-details .label {
+    display: block;
+    background-color: var(--gray1);
+    border-radius: 3px;
+    padding: 0.3rem 0.5rem;
+    margin: 0.3rem;
+    font-size: 0.8rem;
+}
+
+.toy-details .price {
+    color: #f98e71;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-block: 1rem;
+}
+
+.toy-details .instock {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.toy-details .actions {
+    margin-block: 4rem;
+}

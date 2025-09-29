@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { loadToys, removeToyOptimistic, setFilterBy } from "../store/toy/toy.actions"
 import { useSelector } from "react-redux"
-import { useSearchParams } from "react-router"
+import { Outlet, useSearchParams } from "react-router"
 import { toyService } from "../services/toy.service"
 import { getExistingProperties } from "../services/util.service"
 import { ToyList } from "../cmps/ToyList"
@@ -34,6 +34,7 @@ export function ToyIndex() {
     return (
         <section className="container">
             <ToyList toys={toys} onRemoveToy={onRemoveToy} />
+            <Outlet />
         </section>
     )
 }

@@ -1,7 +1,6 @@
 import { Link } from "react-router";
 import { ToyPreview } from "./ToyPreview";
 
-
 export function ToyList({ toys, onRemoveToy }) {
     return (
         <ul className="toy-list">
