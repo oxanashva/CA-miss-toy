@@ -23,7 +23,7 @@ export function toyReducer(state = initialState, cmd) {
         case 'REMOVE_TOY':
             return {
                 ...state,
-                toys: state.toys.filter(toy => toy.id !== cmd.toyId),
+                toys: state.toys.filter(toy => toy._id !== cmd.toyId),
                 lastToys: [...state.toys]
             }
         case 'ADD_TOY':
@@ -34,7 +34,7 @@ export function toyReducer(state = initialState, cmd) {
         case 'EDIT_TOY':
             return {
                 ...state,
-                toys: state.toys.map(toy => toy.id === cmd.toy.id ? cmd.toy : toy)
+                toys: state.toys.map(toy => toy._id === cmd.toy._id ? cmd.toy : toy)
             }
         case 'UNDO_CHANGES':
             return {

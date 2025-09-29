@@ -1,11 +1,11 @@
 import { useEffect } from "react"
-import { loadToys, setFilterBy } from "../store/toy/toy.actions"
+import { loadToys, removeToyOptimistic, setFilterBy } from "../store/toy/toy.actions"
 import { useSelector } from "react-redux"
 import { useSearchParams } from "react-router"
 import { toyService } from "../services/toy.service"
-import { formatToDate, getExistingProperties } from "../services/util.service"
-import instock from '../assets/img/instock.png'
+import { getExistingProperties } from "../services/util.service"
 import { ToyList } from "../cmps/ToyList"
+import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 
 
 export function ToyIndex() {
@@ -22,9 +22,18 @@ export function ToyIndex() {
         setSearchParams(getExistingProperties(filterBy))
     }, [filterBy])
 
+    async function onRemoveToy(toyId) {
+        try {
+            await removeToyOptimistic(toyId)
+            showSuccessMsg('Toy removed successfully!');
+        } catch (error) {
+            showErrorMsg(`Having issues removing toy (${toyId})`)
+        }
+    }
+
     return (
         <section className="container">
-            <ToyList toys={toys} />
+            <ToyList toys={toys} onRemoveToy={onRemoveToy} />
         </section>
     )
 }

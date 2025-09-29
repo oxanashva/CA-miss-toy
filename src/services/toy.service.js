@@ -27,7 +27,7 @@ async function query() {
 }
 
 async function save(toyToSave) {
-    if (toyToSave.id) {
+    if (toyToSave._id) {
         return await storageService.put(STORAGE_KEY, toyToSave)
     } else {
         return await storageService.post(STORAGE_KEY, toyToSave)

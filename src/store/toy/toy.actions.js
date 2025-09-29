@@ -21,7 +21,6 @@ export async function removeToy(toyId) {
         store.dispatch({ type: REMOVE_TOY, toyId })
     } catch (error) {
         console.log('Having issues removing toy:', error)
-        showErrorMsg('Having issues removing toy')
         throw error
     }
 }
@@ -32,7 +31,6 @@ export async function removeToyOptimistic(toyId) {
         await toyService.remove(toyId)
     } catch (error) {
         console.log('Having issues removing toy:', error)
-        showErrorMsg('Having issues removing toy')
         store.dispatch({ type: UNDO_CHANGES })
         throw error
     }
