@@ -13,6 +13,8 @@ export const toyService = {
 
 const STORAGE_KEY = 'TOYS_DB'
 
+const baseUrl = import.meta.env.BASE_URL;
+
 _createToys()
 
 async function query() {
@@ -83,7 +85,7 @@ function _createToys() {
                 "_id": "t104",
                 "name": "Finger Paint Set",
                 "price": 28,
-                "imgUrl": "/toy-img/paint-set.jpeg",
+                "imgUrl": `${baseUrl}toy-img/paint-set.jpeg`,
                 "labels": ["Art", "Baby"],
                 "createdAt": 1632595200000,
                 "inStock": true
@@ -92,7 +94,7 @@ function _createToys() {
                 "_id": "t105",
                 "name": "Scooter",
                 "price": 150,
-                "imgUrl": "/toy-img/scooter.jpeg",
+                "imgUrl": `${baseUrl}toy-img/scooter.jpeg`,
                 "labels": ["On wheels", "Outdoor"],
                 "createdAt": 1633113600000,
                 "inStock": true
@@ -101,7 +103,7 @@ function _createToys() {
                 "_id": "t106",
                 "name": "Monopoly Board Game",
                 "price": 45,
-                "imgUrl": "/toy-img/board-game.jpeg",
+                "imgUrl": `${baseUrl}toy-img/board-game.jpeg`,
                 "labels": ["Box game"],
                 "createdAt": 1633632000000,
                 "inStock": true
@@ -110,7 +112,7 @@ function _createToys() {
                 "_id": "t107",
                 "name": "Cuddle Bear Plush",
                 "price": 75,
-                "imgUrl": "/toy-img/bear.jpeg",
+                "imgUrl": `${baseUrl}toy-img/bear.jpeg`,
                 "labels": ["Doll", "Baby"],
                 "createdAt": 1634150400000,
                 "inStock": false
@@ -119,7 +121,7 @@ function _createToys() {
                 "_id": "t108",
                 "name": "Building Blocks Set",
                 "price": 60,
-                "imgUrl": "/toy-img/block-set.jpeg",
+                "imgUrl": `${baseUrl}toy-img/block-set.jpeg`,
                 "labels": ["Puzzle", "Art"],
                 "createdAt": 1634668800000,
                 "inStock": true
@@ -128,7 +130,7 @@ function _createToys() {
                 "_id": "t101",
                 "name": "Talking Doll",
                 "price": 123,
-                "imgUrl": "/toy-img/doll.jpeg",
+                "imgUrl": `${baseUrl}toy-img/doll.jpeg`,
                 "labels": ["Doll", "Battery Powered", "Baby"],
                 "createdAt": 1631031801011,
                 "inStock": true
@@ -137,7 +139,7 @@ function _createToys() {
                 "_id": "t102",
                 "name": "Remote Control Car",
                 "price": 85,
-                "imgUrl": "/toy-img/car.jpeg",
+                "imgUrl": `${baseUrl}toy-img/car.jpeg`,
                 "labels": ["On wheels", "Battery Powered", "Outdoor"],
                 "createdAt": 1631558400000,
                 "inStock": true
@@ -146,7 +148,7 @@ function _createToys() {
                 "_id": "t103",
                 "name": "Jigsaw Puzzle (1000 pieces)",
                 "price": 35,
-                "imgUrl": "/toy-img/puzzle.jpeg",
+                "imgUrl": `${baseUrl}toy-img/puzzle.jpeg`,
                 "labels": ["Puzzle", "Box game"],
                 "createdAt": 1632076800000,
                 "inStock": false
