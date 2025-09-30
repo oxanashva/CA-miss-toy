@@ -6,6 +6,9 @@
 @import "basics/variables.css";
 
 /* Pages */
+@import "./pages/ToyIndex.css";
+@import "./pages/ToyDetails.css";
+@import "./pages/ToyEdit.css";
 
 /* Components */
 @import "./cmps/AppHeader.css";
@@ -13,5 +16,3 @@
 @import "./cmps/ToyList.css";
 @import "./cmps/ToyPreview.css";
 @import "./cmps/UserMsg.css";
-@import "./pages/ToyDetails.css";
-@import "./pages/ToyEdit.css";

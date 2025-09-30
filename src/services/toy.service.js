@@ -63,12 +63,14 @@ function createToy(
     name = '',
     price = 0,
     labels = [],
+    imgUrl = `${baseUrl}toy-img/placeholder.jpg`,
     inStock = true
 ) {
     return {
         name,
         price,
         labels,
+        imgUrl,
         inStock
     }
 }

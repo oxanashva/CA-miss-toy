@@ -1,0 +1,5 @@
+.toy-index .add-btn {
+    display: flex;
+    justify-self: flex-start;
+    margin-block-end: 1rem;
+}

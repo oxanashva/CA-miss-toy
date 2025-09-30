@@ -20,7 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/toy" element={<ToyIndex />}>
-              <Route path="/toy/edit/:toyId" element={<ToyEdit />} />
+              <Route path="/toy/edit/:toyId?" element={<ToyEdit />} />
             </Route>
             <Route path="toy/:toyId" element={<ToyDetails />} />
           </Routes>

@@ -31,8 +31,6 @@ export function ToyEdit() {
     }
 
     function handleChange({ target }) {
-        console.dir('target :', target);
-
         let { name: field, value, type } = target
 
         if (target.multiple) {
@@ -86,7 +84,7 @@ export function ToyEdit() {
 
     return (
         <dialog ref={elDialog} className="toy-edit">
-            <h2>Edit Toy</h2>
+            <h2>{toyId ? 'Edit Toy' : 'Add Toy'}</h2>
             <form onSubmit={onSaveToy}>
                 <div className="form-group">
                     <label htmlFor="name">Name</label>
@@ -121,6 +119,18 @@ export function ToyEdit() {
                         {labelsOptions.map(label => <option key={label} value={label}>{label}</option>)}
                     </select>
                 </div>
+                {/* <div className="form-group">
+                    <label htmlFor="imgUrl">Image URL</label>
+                    <input
+                        id="imgUrl"
+                        name="imgUrl"
+                        type="url"
+                        value={imgUrl}
+                        placeholder="https://example.com"
+                        pattern="https://.*"
+                        onChange={handleChange}
+                    />
+                </div> */}
                 <div className="form-group">
                     <label htmlFor="inStock">Is In Stock</label>
                     <input
@@ -138,3 +148,5 @@ export function ToyEdit() {
         </dialog>
     )
 }
+
+// https://cdn.pixabay.com/photo/2018/10/26/13/17/russian-stacking-dolls-3774585_1280.jpg
