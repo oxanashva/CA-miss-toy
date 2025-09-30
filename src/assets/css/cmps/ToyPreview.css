@@ -32,6 +32,7 @@
 .toy-preview .img-wrapper {
     position: relative;
 }
+
 .toy-preview .toy-img {
    height: 200px;
    object-fit: cover;
@@ -49,6 +50,10 @@
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.toy-preview .status {
+    height: 32px;
 }
 
 .toy-preview .date {

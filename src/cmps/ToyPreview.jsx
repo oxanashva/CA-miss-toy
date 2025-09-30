@@ -15,7 +15,10 @@ export function ToyPreview({ toy }) {
                     {toy.inStock && <img className="instock" src={instock} alt="In Stock" width={40} />}
                 </div>
                 <p className="price">${toy.price}</p>
-                <span className="date">Posted: {formatToDate(toy.createdAt)}</span>
+                <div className="status">
+                    {toy.createdAt && <p className="date">Posted: {formatToDate(toy.createdAt)}</p>}
+                    {toy.updatedAt && <p className="date">Updated: {formatToDate(toy.updatedAt)}</p>}
+                </div>
             </Link>
         </article>
     )

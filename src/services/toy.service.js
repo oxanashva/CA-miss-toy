@@ -59,10 +59,17 @@ function getFilterFromSearchParams(searchParams) {
     return filterBy
 }
 
-function createToy(name = '', price = 0) {
+function createToy(
+    name = '',
+    price = 0,
+    labels = [],
+    inStock = true
+) {
     return {
         name,
         price,
+        labels,
+        inStock
     }
 }
 
