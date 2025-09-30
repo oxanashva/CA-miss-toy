@@ -17,11 +17,23 @@ const baseUrl = import.meta.env.BASE_URL;
 
 _createToys()
 
-async function query() {
+async function query(filterBy) {
     try {
-        let robots = await storageService.query(STORAGE_KEY)
+        let toys = await storageService.query(STORAGE_KEY)
 
-        return robots
+        if (filterBy) {
+            let { name, inStock, labels } = filterBy
+            if (name) {
+                toys = toys.filter(toy => toy.name.toLowerCase().includes(name.toLowerCase()))
+            }
+            if (inStock !== '') {
+                toys = toys.filter(toy => toy.inStock === inStock)
+            }
+            if (labels.length) {
+                toys = toys.filter(toy => toy.labels.some(toyLabel => labels.includes(toyLabel)))
+            }
+        }
+        return toys
     } catch (error) {
         console.log('error', error)
         throw error
@@ -47,18 +59,44 @@ async function getById(id) {
 }
 
 function getDefaultFilter() {
-    return { name: '', inStock: '', labels: [] }
+    return {
+        name: '',
+        inStock: '',
+        labels: []
+    }
+}
+
+const filterTypeMap = {
+    name: 'string',
+    inStock: 'boolean',
+    labels: 'array',
 }
 
 function getFilterFromSearchParams(searchParams) {
-    const deaultFilter = getDefaultFilter()
+    const defaultFilter = getDefaultFilter()
     const filterBy = {}
-    for (const field in deaultFilter) {
-        filterBy[field] = searchParams.get(field) || ''
+
+    for (const field in defaultFilter) {
+        const type = filterTypeMap[field]
+
+        if (searchParams.has(field)) {
+            switch (type) {
+                case 'array':
+                    filterBy[field] = searchParams.getAll(field)
+                    break
+                case 'boolean':
+                    filterBy[field] = searchParams.get(field) === 'true'
+                    break
+                default:
+                    filterBy[field] = searchParams.get(field)
+            }
+        } else {
+            filterBy[field] = defaultFilter[field]
+        }
     }
+
     return filterBy
 }
-
 function createToy(
     name = '',
     price = 0,

@@ -1,0 +1,16 @@
+.toy-filter{
+    margin-block-end: 3rem;
+}
+
+.toy-filter .filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 1rem;
+}
+
+.toy-filter .filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}

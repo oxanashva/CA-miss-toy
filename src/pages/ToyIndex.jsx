@@ -6,6 +6,7 @@ import { toyService } from "../services/toy.service"
 import { getExistingProperties } from "../services/util.service"
 import { ToyList } from "../cmps/ToyList"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
+import { ToyFilter } from "../cmps/ToyFilter"
 
 
 export function ToyIndex() {
@@ -34,6 +35,7 @@ export function ToyIndex() {
     return (
         <section className="toy-index container">
             <Link to="/toy/edit" className="link-btn add-btn">Add Toy</Link>
+            <ToyFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
             <ToyList toys={toys} onRemoveToy={onRemoveToy} />
             <Outlet />
         </section>
