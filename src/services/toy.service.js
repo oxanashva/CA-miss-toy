@@ -17,7 +17,7 @@ const baseUrl = import.meta.env.BASE_URL;
 
 _createToys()
 
-async function query(filterBy) {
+async function query(filterBy, sortBy) {
     try {
         let toys = await storageService.query(STORAGE_KEY)
 
@@ -33,6 +33,25 @@ async function query(filterBy) {
                 toys = toys.filter(toy => toy.labels.some(toyLabel => labels.includes(toyLabel)))
             }
         }
+
+        if (sortBy) {
+            for (const key in sortBy) {
+                const direction = sortBy[key]
+
+                if (direction) {
+                    const multiplier = (direction === 'asc') ? 1 : -1
+
+                    if (key === 'name') {
+                        toys.sort((a, b) => a.name.localeCompare(b.name) * multiplier)
+                    } else if (key === 'price' || key === 'createdAt') {
+                        toys.sort((a, b) => (a[key] - b[key]) * multiplier)
+                    }
+
+                    break
+                }
+            }
+        }
+
         return toys
     } catch (error) {
         console.log('error', error)

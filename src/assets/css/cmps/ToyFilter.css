@@ -1,5 +1,14 @@
 .toy-filter{
     margin-block-end: 3rem;
+    background-color: var(--bg);
+    padding: 2rem;
+    border-radius: 3px;
+}
+
+.toy-filter h2 {
+    color: var(--active);
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 .toy-filter .filters {
@@ -13,4 +22,24 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+.toy-filter .sort-btns {
+    display: flex;
+    gap: 1rem;
+    margin-block-start: 1rem;
+    margin-block-end: 3rem;
+}
+
+.toy-filter .sort-btns button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: var(--gray1);
+    padding: 0.3rem 0.5rem;
+    border-radius: 3px;
+    transition: all 0.3s ease;
 }

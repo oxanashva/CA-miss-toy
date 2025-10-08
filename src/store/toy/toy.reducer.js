@@ -4,11 +4,13 @@ export const ADD_TOY = "ADD_TOY"
 export const EDIT_TOY = "EDIT_TOY"
 export const UNDO_CHANGES = "UNDO_CHANGES"
 export const SET_FILTER = "SET_FILTER"
+export const SET_SORT = "SET_SORT"
 export const SET_IS_LOADING = "SET_IS_LOADING"
 
 const initialState = {
     toys: [],
     filterBy: {},
+    sortBy: {},
     isLoading: true,
     lastToys: []
 }
@@ -45,6 +47,11 @@ export function toyReducer(state = initialState, cmd) {
             return {
                 ...state,
                 filterBy: { ...state.filterBy, ...cmd.filterBy }
+            }
+        case 'SET_SORT':
+            return {
+                ...state,
+                sortBy: cmd.sortBy
             }
         case 'SET_IS_LOADING':
             return {

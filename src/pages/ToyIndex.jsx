@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { loadToys, removeToyOptimistic, setFilterBy } from "../store/toy/toy.actions"
+import { loadToys, removeToyOptimistic, setFilterBy, setSortBy } from "../store/toy/toy.actions"
 import { useSelector } from "react-redux"
 import { Link, Outlet, useSearchParams } from "react-router"
 import { toyService } from "../services/toy.service"
@@ -13,6 +13,7 @@ export function ToyIndex() {
     const [searchParams, setSearchParams] = useSearchParams()
     const toys = useSelector(storeState => storeState.toyModule.toys)
     const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
+    const sortBy = useSelector(storeState => storeState.toyModule.sortBy)
 
     useEffect(() => {
         setFilterBy(toyService.getFilterFromSearchParams(searchParams))
@@ -21,7 +22,7 @@ export function ToyIndex() {
     useEffect(() => {
         loadToys()
         setSearchParams(getExistingProperties(filterBy))
-    }, [filterBy])
+    }, [filterBy, sortBy])
 
     async function onRemoveToy(toyId) {
         try {
@@ -32,10 +33,21 @@ export function ToyIndex() {
         }
     }
 
+    function onSetSortBy(field, direction) {
+        const newSortBy = {}
+        newSortBy[field] = direction
+        setSortBy(newSortBy)
+    }
+
+    function onClearFilters() {
+        setFilterBy(toyService.getDefaultFilter())
+        setSortBy({})
+    }
+
     return (
         <section className="toy-index container">
             <Link to="/toy/edit" className="link-btn add-btn">Add Toy</Link>
-            <ToyFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
+            <ToyFilter filterBy={filterBy} onSetFilterBy={setFilterBy} sortBy={sortBy} onSetSortBy={onSetSortBy} onClearFilters={onClearFilters} />
             <ToyList toys={toys} onRemoveToy={onRemoveToy} />
             <Outlet />
         </section>
